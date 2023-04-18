@@ -1,4 +1,5 @@
 import { MainContent } from './components/main-content';
+import { SearchBar } from './components/search-bar';
 import getData from './hooks/getContentData';
 
 function App() {
@@ -7,10 +8,11 @@ function App() {
 	return (
 		<div className='App'>
 			<h1>Astronomy Picture of the Day</h1>
-			<div>
-				<input placeholder='enter date' />
-				<button onClick={getData}>count is</button>
-			</div>
+			<SearchBar
+				onClick={() => {
+					console.log('click');
+				}}
+			/>
 			<p>
 				Edit <code>src/App.tsx</code> and save to test HMR
 			</p>
