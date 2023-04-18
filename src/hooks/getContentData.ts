@@ -1,9 +1,6 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-// import { API_KEY, BASE_URL } from '../constants';
-
-// const URL = `${BASE_URL}?api_key=${API_KEY}`;
-const URL = `https://api.nasa.gov/planetary/apod?api_key=Paa38F7ceYh71k3LvQQYMxfwLMdu0IDf0eOENQ6H`;
+import { API_KEY, BASE_URL } from '../constants';
 
 interface Info {
 	data: string;
@@ -15,18 +12,19 @@ interface Info {
 	url: string;
 }
 
-export default function getContentData() {
+export const getContentData = (date?: string) => {
 	const [data, setData] = useState<Info>(Object);
 	const [errorMessage, setErrorMessage] = useState<string>();
 
+	const searchURL = date
+		? `${BASE_URL}?api_key=${API_KEY}&date=${date}`
+		: `${BASE_URL}?api_key=${API_KEY}`;
+
 	const getData = async () => {
 		try {
-			const { data } = await axios.get<Info>(URL, {
-				headers: {
-					Accept: 'application/json',
-				},
-			});
+			const { data } = await axios.get<Info>(searchURL);
 
+			// console.log(data);
 			setData(data);
 		} catch (error) {
 			if (axios.isAxiosError(error)) {
@@ -41,7 +39,7 @@ export default function getContentData() {
 
 	useEffect(() => {
 		getData();
-	}, []);
+	}, [searchURL]);
 
 	return { data, errorMessage };
-}
+};
