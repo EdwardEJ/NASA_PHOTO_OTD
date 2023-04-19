@@ -17,8 +17,9 @@ export const getContentData = () => {
 
 	const getData = async () => {
 		try {
-			const { data } = await axios.get<Info>(searchURL);
+			const { data, status } = await axios.get<Info>(searchURL);
 			setData(data);
+			setStatus(status);
 		} catch (error) {
 			if (axios.isAxiosError(error)) {
 				console.log('error message: ', error.message);

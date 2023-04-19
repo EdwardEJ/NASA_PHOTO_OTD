@@ -19,7 +19,7 @@ export default function Alert() {
 		<>
 			{isVisible && (
 				<div className='absolute flex items-center p-2 mt-2 bg-red-200 rounded-lg transition-all translate-x-0'>
-					<p className='text-xs font-medium text-gray-700'>
+					<p className='text-sm font-medium text-gray-700'>
 						Sorry! Information is not available for this date
 					</p>
 					<button

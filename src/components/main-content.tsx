@@ -1,16 +1,10 @@
-type MainContentProps = {
-	title: string;
-	explanation: string;
-	media_type: string;
-	url: string;
-};
+import { getContentData } from '../hooks/getContentData';
 
-export const MainContent: React.FC<MainContentProps> = ({
-	title,
-	explanation,
-	media_type,
-	url,
-}) => {
+export const MainContent = () => {
+	const {
+		data: { title, url, explanation, media_type },
+	} = getContentData();
+
 	const mediaType = {
 		image: <img src={url} alt={title} />,
 		video: <iframe title={title} src={url} />,
@@ -18,9 +12,9 @@ export const MainContent: React.FC<MainContentProps> = ({
 
 	return (
 		<>
-			<h1>{title}</h1>
+			<h1 className='text-white'>{title}</h1>
 			{mediaType}
-			<p>{explanation}</p>
+			<p className='text-white'>{explanation}</p>
 		</>
 	);
 };
