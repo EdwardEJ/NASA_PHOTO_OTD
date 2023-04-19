@@ -15,13 +15,10 @@ export default function Alert() {
 		}
 	}, [status]);
 
-	console.log('isVisible', isVisible);
-	console.log('status', status);
-
 	return (
 		<>
 			{isVisible && (
-				<div className='absolute flex items-center p-2 mt-2 bg-red-200 rounded-lg transition-all transform'>
+				<div className='absolute flex items-center p-2 mt-2 bg-red-200 rounded-lg'>
 					<p className='text-sm font-medium text-gray-700'>{`Sorry! ${errorMessage}`}</p>
 					<button
 						onClick={closeAlert}
