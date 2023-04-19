@@ -16,6 +16,7 @@ interface Info {
 export const getContentData = () => {
 	const [data, setData] = useState<Info>(Object);
 	const [errorMessage, setErrorMessage] = useState<string>();
+	const [status, setStatus] = useState<number>();
 	const {
 		state: { date },
 	} = useContentContext();
@@ -27,11 +28,11 @@ export const getContentData = () => {
 	const getData = async () => {
 		try {
 			const { data } = await axios.get<Info>(searchURL);
-
 			setData(data);
 		} catch (error) {
 			if (axios.isAxiosError(error)) {
 				console.log('error message: ', error.message);
+				setStatus(error.response?.status);
 				setErrorMessage(error.message);
 			} else {
 				console.log('unexpected error: ', error);
@@ -39,10 +40,11 @@ export const getContentData = () => {
 			}
 		}
 	};
+	console.log('status', status);
 
 	useEffect(() => {
 		getData();
 	}, [searchURL]);
 
-	return { data, errorMessage };
+	return { data, errorMessage, status };
 };
