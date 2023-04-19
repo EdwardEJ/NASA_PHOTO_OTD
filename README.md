@@ -1,6 +1,6 @@
 # NASA_PHOTO_OTD
 
-Built using React + Tailwind + Vite
+Built using React + Typescript + Vite + Tailwind 
 
 To Run locally, clone the repo and run `npm i`
 
