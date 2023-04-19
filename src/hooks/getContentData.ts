@@ -2,7 +2,16 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { API_KEY, BASE_URL } from '../constants';
 import { useContentContext } from '../context';
-import { Info } from '../constants/intefaces';
+
+interface Info {
+	data: string;
+	explanation: string;
+	hdurl: string;
+	media_type: string;
+	service_version: string;
+	title: string;
+	url: string;
+}
 
 export const getContentData = () => {
 	const [data, setData] = useState<Info>(Object);
