@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { getContentData } from '../hooks/getContentData';
 
-export const MainContent = () => {
+const MainContent = () => {
 	const [bigImg, setBigImg] = useState<boolean>();
 
 	const {
@@ -27,3 +27,5 @@ export const MainContent = () => {
 		</div>
 	);
 };
+
+export default MainContent;

@@ -2,7 +2,7 @@ import { ChangeEvent, FormEvent, useState } from 'react';
 import { useContentContext } from '../context';
 import { CONTENT_ACTIONS } from '../context/constants';
 
-export const SearchBar = () => {
+const SearchBar = () => {
 	const { dispatch } = useContentContext();
 	const [date, setDate] = useState('');
 
@@ -30,3 +30,5 @@ export const SearchBar = () => {
 		</form>
 	);
 };
+
+export default SearchBar;

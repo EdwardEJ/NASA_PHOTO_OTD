@@ -1,7 +1,9 @@
+import { lazy } from 'react';
 import Alert from './components/alert';
-import Header from './components/header';
-import { MainContent } from './components/main-content';
-import { SearchBar } from './components/search-bar';
+
+const Header = lazy(() => import('./components/header'));
+const MainContent = lazy(() => import('./components/main-content'));
+const SearchBar = lazy(() => import('./components/search-bar'));
 
 function App() {
 	return (
