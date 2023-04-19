@@ -1,6 +1,6 @@
 import { ChangeEvent, FormEvent, useState } from 'react';
 import { useContentContext } from '../context';
-import { CONTENT_ACTIONS } from '../context/reducer';
+import { CONTENT_ACTIONS } from '../context/constants';
 
 export const SearchBar = () => {
 	const { dispatch } = useContentContext();
