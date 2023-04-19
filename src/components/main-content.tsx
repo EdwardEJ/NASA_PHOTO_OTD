@@ -1,19 +1,12 @@
-import { useState } from 'react';
 import { getContentData } from '../hooks/getContentData';
 
 export const MainContent = () => {
-	const [bigImg, setBigImg] = useState<boolean>();
-
 	const {
 		data: { title, url, explanation, media_type },
 	} = getContentData();
 
-	const toggleImgSize = () => {
-		setBigImg(!bigImg);
-	};
-
 	const mediaType = {
-		image: <img onClick={toggleImgSize} src={url} alt={title} />,
+		image: <img src={url} alt={title} />,
 		video: <iframe title={title} src={url} />,
 	}[media_type];
 
