@@ -3,16 +3,6 @@ import { useEffect, useState } from 'react';
 import { API_KEY, BASE_URL } from '../constants';
 import { useContentContext } from '../context';
 
-interface Info {
-	data: string;
-	explanation: string;
-	hdurl: string;
-	media_type: string;
-	service_version: string;
-	title: string;
-	url: string;
-}
-
 export const getContentData = () => {
 	const [data, setData] = useState<Info>(Object);
 	const [errorMessage, setErrorMessage] = useState<string>();
@@ -40,7 +30,6 @@ export const getContentData = () => {
 			}
 		}
 	};
-	console.log('status', status);
 
 	useEffect(() => {
 		getData();

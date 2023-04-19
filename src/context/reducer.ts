@@ -1,8 +1,5 @@
+import { CONTENT_ACTIONS } from './constants';
 import { ContentContextState, ContentContextAction } from './types';
-
-export enum CONTENT_ACTIONS {
-	UPDATE_DATE,
-}
 
 export const ContentReducer = (
 	state: ContentContextState,
