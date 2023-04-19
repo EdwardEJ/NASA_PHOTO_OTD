@@ -1,0 +1,3 @@
+export enum CONTENT_ACTIONS {
+	UPDATE_DATE,
+}

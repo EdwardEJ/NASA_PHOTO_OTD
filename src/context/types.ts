@@ -1,5 +1,5 @@
 import { ReactNode } from 'react';
-import { CONTENT_ACTIONS } from './reducer';
+import { CONTENT_ACTIONS } from './constants';
 
 export type ContentContextState = {
 	date: string;
