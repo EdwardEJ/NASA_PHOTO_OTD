@@ -1,4 +1,4 @@
-interface Info {
+export interface Info {
 	data: string;
 	explanation: string;
 	hdurl: string;
