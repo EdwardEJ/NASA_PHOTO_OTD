@@ -4,13 +4,13 @@ import { SearchBar } from './components/search-bar';
 import { getContentData } from './hooks/getContentData';
 
 function App() {
-	const [date, setDate] = useState();
+	const [date, setDate] = useState('');
 	const { data, errorMessage } = getContentData();
 
 	return (
 		<div className='App'>
 			<h1>Astronomy Picture of the Day</h1>
-			<SearchBar onDate={() => setDate('')} />
+			<SearchBar />
 			<MainContent
 				title={data.title}
 				media_type={data.media_type}

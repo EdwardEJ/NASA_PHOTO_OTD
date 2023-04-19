@@ -1,13 +1,15 @@
 import { FormEvent } from 'react';
 import { useSearch } from '../hooks/useSearch';
-import { getContentData } from '../hooks/getContentData';
+import { useContentContext } from '../context';
+import { CONTENT_ACTIONS } from '../context/reducer';
 
 export const SearchBar = () => {
+	const { dispatch } = useContentContext();
 	const { values, handleChange } = useSearch();
 
 	const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
-		getContentData(values);
+		dispatch({ type: CONTENT_ACTIONS.UPDATE_DATE, payload: values });
 	};
 
 	return (

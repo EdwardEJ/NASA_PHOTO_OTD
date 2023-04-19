@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { API_KEY, BASE_URL } from '../constants';
+import { useContentContext } from '../context';
 
 interface Info {
 	data: string;
@@ -12,9 +13,12 @@ interface Info {
 	url: string;
 }
 
-export const getContentData = (date?: string) => {
+export const getContentData = () => {
 	const [data, setData] = useState<Info>(Object);
 	const [errorMessage, setErrorMessage] = useState<string>();
+	const {
+		state: { date },
+	} = useContentContext();
 
 	const searchURL = date
 		? `${BASE_URL}?api_key=${API_KEY}&date=${date}`
@@ -24,7 +28,6 @@ export const getContentData = (date?: string) => {
 		try {
 			const { data } = await axios.get<Info>(searchURL);
 
-			// console.log(data);
 			setData(data);
 		} catch (error) {
 			if (axios.isAxiosError(error)) {
