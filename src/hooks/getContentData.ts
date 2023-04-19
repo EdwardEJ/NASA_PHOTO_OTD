@@ -22,9 +22,10 @@ export const getContentData = () => {
 			setStatus(status);
 		} catch (error) {
 			if (axios.isAxiosError(error)) {
+				console.log(error);
 				console.log('error message: ', error.message);
-				setStatus(error.response?.status);
-				setErrorMessage(error.message);
+				setStatus(error.response?.data.code);
+				setErrorMessage(error.response?.data.msg);
 			} else {
 				console.log('unexpected error: ', error);
 				setErrorMessage('An unexpected error occurred');
@@ -34,6 +35,7 @@ export const getContentData = () => {
 
 	useEffect(() => {
 		getData();
+		return setStatus(200);
 	}, [searchURL]);
 
 	return { data, errorMessage, status };
